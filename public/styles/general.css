@@ -286,7 +286,7 @@ body {
 }
 
 .navbar-logo {
-  width: 400px;
+  width: 350px;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -297,5 +297,5 @@ body {
   background-color: none;
   object-fit: cover;
   height: 50px;
-  width: 350px;
+  width: 300px;
 }
