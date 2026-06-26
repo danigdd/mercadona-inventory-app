@@ -8,6 +8,10 @@ server.set("views", path.join(__dirname, "views"));
 server.set("view engine", "ejs");
 server.use(express.urlencoded({ extended: true }));
 server.use(express.static("public"));
+server.use((req, res, next) => {
+  res.locals.isActive = (path) => req.path === path;
+  next();
+});
 
 //routers
 server.use("/", indexRouter);
