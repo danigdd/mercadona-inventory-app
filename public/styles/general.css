@@ -1,0 +1,256 @@
+/* =========
+   Brand
+   ========= */
+
+:root {
+  --color-primary: #0b6e4f;
+  --color-primary-hover: #095b41;
+  --color-primary-active: #074936;
+
+  --color-secondary: #f4b400;
+  --color-secondary-hover: #db9f00;
+  --color-secondary-active: #bf8a00;
+
+  --color-accent: #2d9cdb;
+  --color-accent-hover: #2486bb;
+  --color-accent-active: #1d6f9c;
+}
+
+/* =========
+   Neutrals
+   ========= */
+
+:root {
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+}
+
+/* =========
+   Backgrounds
+   ========= */
+
+:root {
+  --bg-page: #f6f8fa;
+  --bg-surface: #ffffff;
+  --bg-surface-alt: #f3f4f6;
+  --bg-card: #ffffff;
+  --bg-sidebar: #14532d;
+  --bg-header: #ffffff;
+  --bg-overlay: rgba(0, 0, 0, 0.45);
+}
+
+/* =========
+   Text
+   ========= */
+
+:root {
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
+  --text-placeholder: #9ca3af;
+  --text-inverse: #ffffff;
+  --text-link: #2d9cdb;
+}
+
+/* =========
+   Borders
+   ========= */
+
+:root {
+  --border-light: #e5e7eb;
+  --border-default: #d1d5db;
+  --border-dark: #9ca3af;
+  --border-focus: #2d9cdb;
+}
+
+/* =========
+   Status
+   ========= */
+
+:root {
+  --success: #16a34a;
+  --success-light: #dcfce7;
+  --success-dark: #166534;
+
+  --warning: #f59e0b;
+  --warning-light: #fef3c7;
+  --warning-dark: #92400e;
+
+  --danger: #dc2626;
+  --danger-light: #fee2e2;
+  --danger-dark: #991b1b;
+
+  --info: #2563eb;
+  --info-light: #dbeafe;
+  --info-dark: #1d4ed8;
+}
+
+/* =========
+   Stock
+   ========= */
+
+:root {
+  --stock-high: #16a34a;
+  --stock-medium: #f59e0b;
+  --stock-low: #ef4444;
+  --stock-empty: #7f1d1d;
+}
+
+/* =========
+   Categories
+   ========= */
+
+:root {
+  --category-fruit: #4caf50;
+  --category-vegetable: #2e7d32;
+  --category-meat: #b71c1c;
+  --category-fish: #0288d1;
+  --category-dairy: #fbc02d;
+  --category-bakery: #a1887f;
+  --category-frozen: #42a5f5;
+  --category-drinks: #7e57c2;
+  --category-snacks: #ff9800;
+  --category-cleaning: #00acc1;
+  --category-personal-care: #ec407a;
+  --category-pets: #8d6e63;
+}
+
+/* =========
+   Forms
+   ========= */
+
+:root {
+  --input-bg: #ffffff;
+  --input-border: #d1d5db;
+  --input-border-focus: #2d9cdb;
+  --input-text: #111827;
+  --input-placeholder: #9ca3af;
+  --input-disabled: #f3f4f6;
+}
+
+/* =========
+   Buttons
+   ========= */
+
+:root {
+  --button-primary-bg: var(--color-primary);
+  --button-primary-text: #ffffff;
+
+  --button-secondary-bg: var(--color-secondary);
+  --button-secondary-text: #111827;
+
+  --button-danger-bg: var(--danger);
+  --button-danger-text: #ffffff;
+
+  --button-disabled-bg: #d1d5db;
+  --button-disabled-text: #6b7280;
+}
+
+/* =========
+   Tables
+   ========= */
+
+:root {
+  --table-header-bg: #f3f4f6;
+  --table-row-bg: #ffffff;
+  --table-row-hover: #f9fafb;
+  --table-row-selected: #dbeafe;
+}
+
+/* =========
+   Shadows
+   ========= */
+
+:root {
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.12);
+  --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.16);
+}
+
+/* =========
+   Radius
+   ========= */
+
+:root {
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-round: 999px;
+}
+
+/* =========
+   Spacing
+   ========= */
+
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 32px;
+  --space-8: 40px;
+  --space-9: 48px;
+  --space-10: 64px;
+}
+
+/* =========
+   Animation
+   ========= */
+
+:root {
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s ease;
+  --transition-slow: 0.4s ease;
+}
+
+:root {
+  --font-family:
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+
+  --font-size-xs: 0.75rem; /* 12px */
+  --font-size-sm: 0.875rem; /* 14px */
+  --font-size-md: 1rem; /* 16px */
+  --font-size-lg: 1.125rem; /* 18px */
+  --font-size-xl: 1.5rem; /* 24px */
+  --font-size-2xl: 2rem; /* 32px */
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --line-height: 1.5;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+}
+
+body {
+  min-height: 100vh;
+  background-color: red;
+}
+.container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+}
