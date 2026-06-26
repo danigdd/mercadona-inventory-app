@@ -1,12 +1,18 @@
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <link rel="stylesheet" href="/styles/general.css">
 <link rel="stylesheet" href="/styles/index.css">
 
 <div class="navbar">
-    <div class="navbar-logo" style="width : 400px"><img src="/images/mercadona_text_logo.svg"></div>
-    <div class="navbar-content <%= locals.isActive('/') ? 'active' : '' %>">Inicio</div>
-    <div class="navbar-content">Categorías</div>
-    <div class="navbar-content">Productos</div>
+    
+    <a href="/" class="navbar-logo">
+        <img class = "mobileLogo" src="/images/mercadona_logo_mobile.svg" alt = "logo">
+        <img class = "desktopLogo" src="/images/mercadona_text_logo.svg" alt="logo">
+        
+    </a>
+
+    <% navItems.forEach(item => { %>
+        <a href="<%= item.path %>" class="navbar-content <%= isActive(item.path) ? 'active' : '' %>">
+            <%= item.name %>
+        </a>
+    <% } ) %>
+
 </div>

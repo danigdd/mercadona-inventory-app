@@ -249,6 +249,11 @@ body {
   min-height: 100vh;
   background-color: var(--bg-page);
 }
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
 .container {
   width: 100%;
   min-height: 100vh;
@@ -258,21 +263,24 @@ body {
 .navbar {
   width: 100%;
   display: flex;
-  height: 50px;
+  height: 60px;
   justify-content: flex-start;
+  align-items: center;
   background-color: var(--color-primary);
+  overflow-x: auto;
+  white-space: nowrap;
 }
 
 .navbar-content {
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  background-color: var(--color-primary);
-  width: 150px;
+  min-width: auto; /*mobile first*/
+  height: 100%;
+  padding: 0px 12px;
   transition: 0.2s;
   color: var(--text-inverse);
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 700;
 }
 
@@ -281,21 +289,57 @@ body {
   cursor: pointer;
 }
 
+.navbar-content:focus {
+  outline: none;
+  box-shadow: inset 0 0 0 2px var(--color-accent);
+}
+
 .navbar-content.active {
   background-color: var(--color-primary-active);
 }
 
 .navbar-logo {
-  width: 350px;
+  min-width: 50px;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 4px 10px 4px 10px;
 }
 
 .navbar-logo img {
-  background-color: none;
+  background-color: transparent;
   object-fit: cover;
   height: 50px;
-  width: 300px;
+  width: 50px;
+}
+
+.desktopLogo {
+  display: none;
+}
+
+.mobileLogo {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .navbar-content {
+    min-width: 120px;
+    padding: 0px 18px;
+    font-size: 18px;
+  }
+  .navbar-logo {
+    min-width: 400px;
+  }
+  .navbar-logo img {
+    height: 60px;
+    width: 360px;
+  }
+  .desktopLogo {
+    display: block;
+  }
+
+  .mobileLogo {
+    display: none;
+  }
 }

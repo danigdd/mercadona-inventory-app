@@ -4,12 +4,28 @@ require("dotenv").config();
 const path = require("path");
 const indexRouter = require("./routes/indexRouter");
 
+const navItems = [
+  { name: "Inicio", path: "/" },
+  { name: "Categorías", path: "/categories" },
+  { name: "Productos", path: "/products" },
+];
+
 server.set("views", path.join(__dirname, "views"));
 server.set("view engine", "ejs");
 server.use(express.urlencoded({ extended: true }));
 server.use(express.static("public"));
+
+//global middleware
 server.use((req, res, next) => {
-  res.locals.isActive = (path) => req.path === path;
+  res.locals.isActive = (p) => {
+    const current = req.path;
+
+    if (p === "/") return current === "/";
+
+    return current === p || current.startsWith(p + "/");
+  };
+  res.locals.navItems = navItems;
+  res.locals.currentPath = req.path;
   next();
 });
 
