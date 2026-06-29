@@ -20,9 +20,10 @@ server.use(express.static("public"));
 //global middleware
 server.use((req, res, next) => {
   res.locals.isActive = (p) => {
-    const current = req.path;
+    const current = req.originalUrl;
 
     if (p === "/") return current === "/";
+
 
     return current === p || current.startsWith(p + "/");
   };
