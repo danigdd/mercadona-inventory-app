@@ -3,6 +3,8 @@ const server = express();
 require("dotenv").config();
 const path = require("path");
 const indexRouter = require("./routes/indexRouter");
+const categoriesRouter = require("./routes/categoriesRouter");
+const productsRouter = require("./routes/productsRouter");
 
 const navItems = [
   { name: "Inicio", path: "/" },
@@ -31,6 +33,8 @@ server.use((req, res, next) => {
 
 //routers
 server.use("/", indexRouter);
+server.use("/categorias", categoriesRouter);
+server.use("/productos", productsRouter);
 
 const PORT = process.env.PORT || 3000;
 
