@@ -9,8 +9,15 @@ async function categoriesGet(req, res) {
   res.render("categories", {categories : categories});
 }
 
-function productsGet(req, res) {
-  res.render("products");
+async function productsGet(req, res) {
+  const products = await db.getAllProducts();
+  res.render("products", {products: products});
 }
 
-module.exports = { indexGet, categoriesGet, productsGet };
+async function categoriesDelete(req, res) {
+  const id = req.params.id;
+  await db.deleteCategory(id);
+  res.redirect("/categorias");
+}
+
+module.exports = { indexGet, categoriesGet, productsGet, categoriesDelete };

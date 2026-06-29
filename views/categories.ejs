@@ -18,7 +18,10 @@
             <div class="containerCategories">
                 <% for (category of categories) { %>
                     <div class="category">
-                        <a><%= category.name %></a>
+                        <a href="/categories/<%= category.name.toLowerCase() %>"><%= category.name %></a>
+                        <form method="GET" action="/categorias/<%= category.id %>/delete/">
+                            <button type = "submit">Eliminar</button>
+                        </form>
                     </div>
                 <% } %>
             </div>

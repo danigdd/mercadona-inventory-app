@@ -6,8 +6,8 @@ const indexRouter = require("./routes/indexRouter");
 
 const navItems = [
   { name: "Inicio", path: "/" },
-  { name: "Categorías", path: "/categories" },
-  { name: "Productos", path: "/products" },
+  { name: "Categorías", path: "/categorias" },
+  { name: "Productos", path: "/productos" },
 ];
 
 server.set("views", path.join(__dirname, "views"));

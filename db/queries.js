@@ -10,4 +10,9 @@ async function getAllCategories() {
     return rows;
 }
 
-module.exports = {getAllProducts, getAllCategories};
+async function deleteCategory(id) {
+    await pool.query("DELETE FROM products WHERE category_id = $1", [id]);
+    await pool.query("DELETE FROM categories WHERE id = $1", [id]);
+    return;
+}
+module.exports = {getAllProducts, getAllCategories, deleteCategory};

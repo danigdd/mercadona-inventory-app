@@ -323,6 +323,14 @@ a {
   display: block;
 }
 
+.panelOptions {
+    display :flex;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: yellow;
+    margin: 20px 0px;
+}
+
 @media (min-width: 768px) {
   .navbar-content {
     min-width: 120px;
