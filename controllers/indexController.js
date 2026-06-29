@@ -1,4 +1,8 @@
-function indexGet(req, res) {
+const db = require("../db/queries");
+
+async function indexGet(req, res) {
+  const rows = await db.getAllProducts();
+  console.log(rows);
   res.render("index");
 }
 
