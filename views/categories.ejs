@@ -4,12 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel = "stylesheet" href = "/styles/general.css">
-    <link rel = "stylesheet" href = "/styles/indexStyles.css">
+    <link rel = "stylesheet" href = "/styles/categoriesStyles.css">
     <title>Categorías | Mercadona</title>
 </head>
 <body>
     <div class="container">
         <%- include ("partials/navbar") %>
+        <div class="homeCategories">
+            <div class="panelOptions">
+                <button>Añadir categoría</button>
+            </div>
+
+            <div class="containerCategories">
+                <% for (category of categories) { %>
+                    <div class="category">
+                        <a><%= category.name %></a>
+                    </div>
+                <% } %>
+            </div>
+        </div>
     </div>
 </body>
 </html>

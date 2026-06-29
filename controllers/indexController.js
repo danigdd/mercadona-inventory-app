@@ -1,13 +1,12 @@
 const db = require("../db/queries");
 
-async function indexGet(req, res) {
-  const rows = await db.getAllProducts();
-  console.log(rows);
+async function indexGet(req, res) {;
   res.render("index");
 }
 
-function categoriesGet(req, res) {
-  res.render("categories");
+async function categoriesGet(req, res) {
+  const categories = await db.getAllCategories();
+  res.render("categories", {categories : categories});
 }
 
 function productsGet(req, res) {

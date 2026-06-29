@@ -1,0 +1,14 @@
+.homeCategories{
+    display:flex;
+    flex-direction: column;
+    flex: 1;
+    background-color: green;
+}
+
+.panelOptions {
+    display :flex;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: yellow;
+    margin: 20px 0px;
+}
