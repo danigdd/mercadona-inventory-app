@@ -12,13 +12,13 @@
         <%- include ("partials/navbar") %>
         <div class="homeProducts">
             <div class="panelOptions">
-                <button>Añadir producto</button>
+                <a href="productos/nuevo">Añadir producto</a>
             </div>
 
             <div class="containerProducts">
                 <% for (product of products) { %>
                     <div class="product">
-                        <a href="/categories/<%= product.name.toLowerCase() %>"><%= product.name %></a>
+                        <a href="/productos/<%= product.name.toLowerCase() %>"><%= product.name %></a>
                     </div>
                 <% } %>
             </div>

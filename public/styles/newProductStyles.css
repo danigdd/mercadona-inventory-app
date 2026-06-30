@@ -1,0 +1,14 @@
+.homeNewProduct {
+    flex: 1;
+    background-color: green;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.newProductForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
