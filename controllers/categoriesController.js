@@ -11,4 +11,16 @@ async function categoriesDelete(req, res) {
   res.redirect("/categorias");
 }
 
-module.exports = {categoriesDelete, categoriesGet};
+//new category
+function categoriesGetNew(req, res) {
+    res.render("newCategory.ejs");
+}
+
+//post created category
+async function categoriesPostNew(req, res){
+  const name = await req.body["category_name"];
+  db.createCategory(name);
+  res.redirect("/categorias");
+
+}
+module.exports = {categoriesDelete, categoriesGet, categoriesGetNew, categoriesPostNew};

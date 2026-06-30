@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href = "/styles/general.css">
+    <link rel = "stylesheet" href = "/styles/categoriesStyles.css">
+    <link rel = "stylesheet" href = "/styles/newCategoryStyles.css">
+    <title>Categorías | Mercadona</title>
+</head>
+<body>
+    <div class="container">
+        <%- include ("partials/navbar") %>
+        <div class="homeNewCategory">
+            <span class = "title">Nueva categoría</span>
+            <form method="POST" action="/categorias/nueva" class="newCategoryForm">
+                <label for="category_name">Nombre</label>
+                <input name="category_name" placeholder="Frutas...">
+                <button type="submit">Crear categoría</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
