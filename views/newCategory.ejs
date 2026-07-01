@@ -18,6 +18,15 @@
                 <input name="category_name" placeholder="Frutas...">
                 <button type="submit">Crear categoría</button>
             </form>
+            <% if (locals.errors) { %>
+                <% console.log(errors) %>
+                <ul>
+                    <% for (error of errors) { %>
+                        <li><%= error.msg %></li>
+                    <% } %>
+                </ul>
+            <% } %>
+
         </div>
     </div>
 </body>
