@@ -1,7 +1,97 @@
 .homeProducts {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    background-color: green;
-    padding : 20px;
+  flex: 1;
+  padding-bottom: var(--space-8);
+}
+
+.containerProducts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+  padding: 0 var(--space-5);
+}
+
+.product {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  animation: fadeUp var(--transition-normal) both;
+}
+
+.containerProducts .product:nth-child(6n+1) { animation-delay: 0.02s; }
+.containerProducts .product:nth-child(6n+2) { animation-delay: 0.06s; }
+.containerProducts .product:nth-child(6n+3) { animation-delay: 0.1s; }
+.containerProducts .product:nth-child(6n+4) { animation-delay: 0.14s; }
+.containerProducts .product:nth-child(6n+5) { animation-delay: 0.18s; }
+.containerProducts .product:nth-child(6n+6) { animation-delay: 0.22s; }
+
+.product:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.product-media {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: var(--bg-surface-alt);
+  overflow: hidden;
+}
+
+.product-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.product:hover .product-media img {
+  transform: scale(1.06);
+}
+
+.product-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-3) var(--space-3) var(--space-4);
+}
+
+.product-name {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-md);
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: color var(--transition-fast);
+}
+
+.product-name:hover {
+  color: var(--color-primary);
+}
+
+@media (min-width: 640px) {
+  .containerProducts {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .containerProducts {
+    grid-template-columns: repeat(4, 1fr);
+    padding: 0 var(--space-8);
+    gap: var(--space-5);
+  }
+
+  .panelOptions {
+    padding-left: var(--space-8);
+    padding-right: var(--space-8);
+  }
+
+  .product-body {
+    padding: var(--space-4) var(--space-4) var(--space-4) var(--space-5);
+  }
 }

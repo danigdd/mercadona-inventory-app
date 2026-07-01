@@ -1,0 +1,126 @@
+/* =========
+   Navbar
+   ========= */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 64px;
+  background-color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+}
+
+.navbar-logo {
+  min-width: 50px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 4px 6px 4px 14px;
+  flex-shrink: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.navbar-logo:hover {
+  opacity: 0.85;
+}
+
+.navbar-logo img {
+  background-color: transparent;
+  object-fit: cover;
+  height: 42px;
+  width: 42px;
+}
+
+.desktopLogo {
+  display: none;
+}
+
+.mobileLogo {
+  display: block;
+}
+
+/* scrollable pill strip on mobile, edges fade to hint overflow */
+.navbar-links {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  gap: var(--space-2);
+  padding: 0 var(--space-4) 0 var(--space-1);
+  overflow-x: auto;
+  scrollbar-width: none;
+  mask-image: linear-gradient(to right, transparent 0, black 12px, black calc(100% - 12px), transparent 100%);
+}
+
+.navbar-links::-webkit-scrollbar {
+  display: none;
+}
+
+.navbar-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  height: 38px;
+  padding: 0 var(--space-4);
+  border-radius: var(--radius-round);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+  color: rgba(255, 255, 255, 0.75);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.navbar-content:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-inverse);
+}
+
+.navbar-content.active {
+  background-color: var(--color-secondary);
+  color: var(--color-primary-active);
+}
+
+.navbar-content.active:hover {
+  background-color: var(--color-secondary-hover);
+}
+
+@media (min-width: 768px) {
+  .navbar {
+    height: 76px;
+  }
+
+  .navbar-logo {
+    min-width: auto;
+    margin: 4px var(--space-6) 4px var(--space-7);
+  }
+
+  .navbar-logo img {
+    width: 220px;
+    height: 46px;
+    object-fit: contain;
+  }
+
+  .desktopLogo {
+    display: block;
+  }
+
+  .mobileLogo {
+    display: none;
+  }
+
+  .navbar-links {
+    gap: var(--space-3);
+    padding-right: var(--space-7);
+    mask-image: none;
+  }
+
+  .navbar-content {
+    height: 42px;
+    padding: 0 var(--space-5);
+    font-size: var(--font-size-md);
+  }
+}
