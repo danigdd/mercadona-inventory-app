@@ -10,24 +10,55 @@
 <body>
     <div class="container">
         <%- include ("partials/navbar") %>
-        <div class="homeProducts">
+        <main class="homeProducts">
             <div class="panelOptions">
-                <a href="/productos/nuevo">Añadir producto</a>
+                <div>
+                    <p class="panelOptions-eyebrow">Catálogo</p>
+                    <h1 class="panelOptions-title">Productos</h1>
+                </div>
+                <a href="/productos/nuevo" class="btn btn-add tag-notch">
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                        <path d="M12 5v14M5 12h14"/>
+                    </svg>
+                    Añadir producto
+                </a>
             </div>
 
-            <div class="containerProducts">
-                <% for (product of products) { %>
-                    <div class="product">
-                        <a href="/productos/<%= product.name.toLowerCase() %>"><%= product.name %></a>
-                        <img src="<%= product.photo_url %>">
-                        <form method="GET" action="/productos/<%= product.id %>/delete">
-                            <button type="submit">Eliminar</button>
-                        </form>
-                    </div>
-                <% } %>
-            </div>
-        </div>
-        </div>
+            <% if (products.length === 0) { %>
+                <div class="empty-state">
+                    <span class="empty-state-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 9h16l-1.5 10a2 2 0 0 1-2 1.8H7.5a2 2 0 0 1-2-1.8L4 9z"/>
+                            <path d="M8 9V6a4 4 0 0 1 8 0v3"/>
+                        </svg>
+                    </span>
+                    <p class="empty-state-title">Aún no hay productos</p>
+                    <p class="empty-state-desc">Añade el primero para empezar a llenar el catálogo.</p>
+                </div>
+            <% } else { %>
+                <div class="containerProducts">
+                    <% for (product of products) { %>
+                        <div class="product">
+                            <div class="product-media">
+                                <img src="<%= product.photo_url %>" alt="<%= product.name %>">
+                            </div>
+                            <div class="product-body">
+                                <a href="/productos/<%= product.name.toLowerCase() %>" class="product-name"><%= product.name %></a>
+                                <form method="GET" action="/productos/<%= product.id %>/delete" class="product-delete-form">
+                                    <button type="submit" class="btn-icon-only" aria-label="Eliminar <%= product.name %>">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M4 7h16"/>
+                                            <path d="M9 7V4h6v3"/>
+                                            <path d="M6 7l1 13h10l1-13"/>
+                                        </svg>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    <% } %>
+                </div>
+            <% } %>
+        </main>
     </div>
 </body>
 </html>

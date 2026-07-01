@@ -11,35 +11,88 @@
 <body>
     <div class="container">
         <%- include ("partials/navbar") %>
-        <div class="homeNewProduct">
-            <span class = "title">Nuevo producto</span>
-            <form method="POST" action="/productos/nuevo" class="newProductForm">
-                <label for="product_name">Nombre</label>
-                <input name="product_name" placeholder="Manzana...">
-                <label for="product_price">Precio</label>
-                <input name="product_price" placeholder="2.95 ...">
-                <select name="product_category">
+        <main class="homeNewProduct">
+            <div class="form-card newProduct-card">
+                <span class = "title">Nuevo producto</span>
+                <p class="newProduct-subtitle">Rellena la ficha, en un momento estará en el catálogo.</p>
 
-                    <option value="">Selecciona una categoría</option>
+                <form method="POST" action="/productos/nuevo" class="newProductForm">
+                    <div class="newProduct-grid">
+                        <div class="field">
+                            <label for="product_name">Nombre</label>
+                            <input id="product_name" name="product_name" placeholder="Manzana...">
+                        </div>
 
-                    <% categories.forEach(category => { %>
-                        <option value="<%= category %>"><%= category %></option>
-                    <% }) %>
-                </select>
-                
-                <label for="product_photo">Foto</label>
-                <input name="product_photo" placeholder="https://google.com/images ...">
-                <button type="submit">Crear producto</button>
-            </form>
+                        <div class="field">
+                            <label for="product_price">Precio</label>
+                            <input id="product_price" name="product_price" placeholder="2.95 ...">
+                        </div>
 
-            <% if (locals.errors_product) { %>
-                <ul>
-                    <% for (error of errors_product) { %>
-                        <li><%= error.msg %></li>
-                    <% } %>
-                </ul>
-            <% } %>
-        </div>
+                        <div class="field">
+                            <label for="product_category">Categoría</label>
+                            <div class="select-wrap">
+                                <select id="product_category" name="product_category">
+                                    <option value="">Selecciona una categoría</option>
+                                    <% categories.forEach(category => { %>
+                                        <option value="<%= category %>"><%= category %></option>
+                                    <% }) %>
+                                </select>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M6 9l6 6 6-6"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label for="product_photo">Foto</label>
+                            <input id="product_photo" name="product_photo" placeholder="https://google.com/images ...">
+                        </div>
+                    </div>
+
+                    <div class="photo-preview" id="photoPreview">
+                        <img id="photoPreviewImg" alt="Vista previa del producto">
+                        <span class="photo-preview-placeholder">La foto aparecerá aquí</span>
+                    </div>
+
+                    <button type="submit" class="btn btn-add form-submit tag-notch">Crear producto</button>
+                </form>
+
+                <% if (locals.errors_product) { %>
+                    <ul class="error-list">
+                        <% for (error of errors_product) { %>
+                            <li><%= error.msg %></li>
+                        <% } %>
+                    </ul>
+                <% } %>
+            </div>
+        </main>
     </div>
+
+    <script>
+        // purely visual: live-previews the photo URL as the user types, never touches form submission
+        (function () {
+            var input = document.getElementById("product_photo");
+            var wrap = document.getElementById("photoPreview");
+            var img = document.getElementById("photoPreviewImg");
+            if (!input || !wrap || !img) return;
+
+            input.addEventListener("input", function () {
+                var url = input.value.trim();
+                if (!url) {
+                    wrap.classList.remove("has-image");
+                    return;
+                }
+                img.src = url;
+            });
+
+            img.addEventListener("load", function () {
+                wrap.classList.add("has-image");
+            });
+
+            img.addEventListener("error", function () {
+                wrap.classList.remove("has-image");
+            });
+        })();
+    </script>
 </body>
 </html>

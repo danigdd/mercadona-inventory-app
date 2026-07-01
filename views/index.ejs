@@ -10,14 +10,43 @@
 <body>
     <div class="container">
         <%- include ("partials/navbar") %>
-        <div class="homeIndex">
-            <img src="/images/mercadona_text_logo.svg">
-            <span>Gestiona tu inventario</span>
+        <main class="homeIndex">
+            <p class="homeIndex-eyebrow">Panel de control</p>
+            <img class="homeIndex-logo" src="/images/mercadona_text_logo.svg" alt="Mercadona">
+            <span class="homeIndex-tagline">Gestiona tu inventario</span>
+            <p class="homeIndex-subtitle">Categorías y productos, todo desde un mismo sitio.</p>
+
             <div class="optionsContainer">
-                <a href = "/categorias">Categorías</a>
-                <a href = "/productos">Productos</a>
+                <a href = "/categorias" class="homeCard">
+                    <span class="homeCard-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 8l9-4 9 4-9 4-9-4z"/>
+                            <path d="M3 8v8l9 4 9-4V8"/>
+                            <path d="M12 12v8"/>
+                        </svg>
+                    </span>
+                    <span class="homeCard-body">
+                        <span class="homeCard-title">Categorías</span>
+                        <span class="homeCard-desc">Organiza tus secciones</span>
+                    </span>
+                    <span class="homeCard-arrow" aria-hidden="true">&rarr;</span>
+                </a>
+
+                <a href = "/productos" class="homeCard">
+                    <span class="homeCard-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 9h16l-1.5 10a2 2 0 0 1-2 1.8H7.5a2 2 0 0 1-2-1.8L4 9z"/>
+                            <path d="M8 9V6a4 4 0 0 1 8 0v3"/>
+                        </svg>
+                    </span>
+                    <span class="homeCard-body">
+                        <span class="homeCard-title">Productos</span>
+                        <span class="homeCard-desc">Gestiona tu catálogo</span>
+                    </span>
+                    <span class="homeCard-arrow" aria-hidden="true">&rarr;</span>
+                </a>
             </div>
-        </div>
+        </main>
     </div>
 </body>
 </html>

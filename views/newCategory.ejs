@@ -11,23 +11,29 @@
 <body>
     <div class="container">
         <%- include ("partials/navbar") %>
-        <div class="homeNewCategory">
-            <span class = "title">Nueva categoría</span>
-            <form method="POST" action="/categorias/nueva" class="newCategoryForm">
-                <label for="category_name">Nombre</label>
-                <input name="category_name" placeholder="Frutas...">
-                <button type="submit">Crear categoría</button>
-            </form>
-            <% if (locals.errors) { %>
-                <% console.log(errors) %>
-                <ul>
-                    <% for (error of errors) { %>
-                        <li><%= error.msg %></li>
-                    <% } %>
-                </ul>
-            <% } %>
+        <main class="homeNewCategory">
+            <div class="form-card newCategory-card">
+                <span class = "title">Nueva categoría</span>
+                <p class="newCategory-subtitle">Dale un nombre claro, será el que vea todo el equipo.</p>
 
-        </div>
+                <form method="POST" action="/categorias/nueva" class="newCategoryForm">
+                    <div class="field">
+                        <label for="category_name">Nombre</label>
+                        <input id="category_name" name="category_name" placeholder="Frutas...">
+                    </div>
+                    <button type="submit" class="btn btn-add form-submit tag-notch">Crear categoría</button>
+                </form>
+
+                <% if (locals.errors) { %>
+                    <% console.log(errors) %>
+                    <ul class="error-list">
+                        <% for (error of errors) { %>
+                            <li><%= error.msg %></li>
+                        <% } %>
+                    </ul>
+                <% } %>
+            </div>
+        </main>
     </div>
 </body>
 </html>
