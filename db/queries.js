@@ -31,7 +31,7 @@ async function deleteProduct(id) {
     return;
 }
 async function findCategoryId(name) {
-    const {rows} = await pool.query("SELECT id FROM categories WHERE name=$1", [name]);
-    return rows;
+    const {rows} = await pool.query("SELECT id FROM categories WHERE name=$1", [name]); //array
+    return rows[0]?.id;
 }
 module.exports = {getAllProducts, getAllCategories, deleteCategory, createCategory, findCategoryId, addProduct, deleteProduct};

@@ -11,9 +11,8 @@ function productsNewGet(req, res) {
 
 async function productsNewPost(req, res) {
   const body = req.body;
-  const product_id = await db.findCategoryId(body.product_name);
-
-  await db.addProduct(body.product_name, body.product_price, body.product_id, body.photo || '/images/noimage.svg');
+  const category_id = await db.findCategoryId(body.product_category);
+  await db.addProduct(body.product_name, body.product_price, category_id, body.photo || '/images/noimage.svg');
   res.redirect("/productos");
 }
 
