@@ -44,20 +44,28 @@ async function productsGet(req, res) {
 }
 
 async function productsNewGet(req, res) {
+  console.log("HOL");
   const current_categories = await db.getAllCategories();
   const categories = [];
 
   for (category of current_categories) {
     categories.push(category.name);
   }
+  console.log(categories);
 
   res.render("newProduct", {categories: categories});
 }
 
 const productsNewPost = [validateUser, async (req, res) => {
+  const current_categories = await db.getAllCategories();
+  const categories = [];
+
+  for (category of current_categories) {
+    categories.push(category.name);
+  }
   const errors = validationResult(req);
   if(!errors.isEmpty()) {
-    return res.status(400).render("newProduct", {errors_product: errors.array()});
+    return res.status(400).render("newProduct", {errors_product: errors.array(), categories : categories});
   }
   console.log("sigo?");
 

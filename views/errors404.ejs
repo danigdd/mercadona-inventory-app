@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/general.css">
+    <link rel="stylesheet" href="/styles/error404Styles.css">
+    <title>Página no encontrada</title>
+    <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+    <div class="container">
+
+        <%- include("partials/navbar") %>
+
+        <main class="error404">
+            
+            <p class="error404-eyebrow">Error</p>
+
+            <h1 class="error404-code">404</h1>
+
+            <p class="error404-title">
+                Página no encontrada
+            </p>
+
+            <p class="error404-subtitle">
+                La ruta que has intentado acceder no existe o ha sido movida.
+            </p>
+
+            <div class="error404-actions">
+                <a href="/" class="error404-button primary">
+                    Volver al inicio
+                </a>
+
+                <a href="/productos" class="error404-button secondary">
+                    Ver productos
+                </a>
+            </div>
+
+        </main>
+
+    </div>
+</body>
+</html>
