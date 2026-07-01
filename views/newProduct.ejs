@@ -18,12 +18,20 @@
                 <input name="product_name" placeholder="Manzana...">
                 <label for="product_price">Precio</label>
                 <input name="product_price" placeholder="2.95 ...">
-                <label for="product_cateogry">Categoría</label>
+                <label for="product_category">Categoría</label>
                 <input name="product_category" placeholder="Frutas...">
                 <label for="product_photo">Foto</label>
                 <input name="product_photo" placeholder="https://google.com/images ...">
                 <button type="submit">Crear producto</button>
             </form>
+
+            <% if (locals.errors_product) { %>
+                <ul>
+                    <% for (error of errors_product) { %>
+                        <li><%= error.msg %></li>
+                    <% } %>
+                </ul>
+            <% } %>
         </div>
     </div>
 </body>
