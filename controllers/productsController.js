@@ -43,8 +43,15 @@ async function productsGet(req, res) {
   res.render("products", {products: products});
 }
 
-function productsNewGet(req, res) {
-  res.render("newProduct");
+async function productsNewGet(req, res) {
+  const current_categories = await db.getAllCategories();
+  const categories = [];
+
+  for (category of current_categories) {
+    categories.push(category.name);
+  }
+
+  res.render("newProduct", {categories: categories});
 }
 
 const productsNewPost = [validateUser, async (req, res) => {
