@@ -19,6 +19,10 @@
                 <% for (product of products) { %>
                     <div class="product">
                         <a href="/productos/<%= product.name.toLowerCase() %>"><%= product.name %></a>
+                        <img src="<%= product.photo_url %>">
+                        <form method="GET" action="/productos/<%= product.id %>/delete">
+                            <button type="submit">Delete</button>
+                        </form>
                     </div>
                 <% } %>
             </div>

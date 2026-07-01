@@ -13,8 +13,14 @@ async function productsNewPost(req, res) {
   const body = req.body;
   const product_id = await db.findCategoryId(body.product_name);
 
-  await db.addProduct(body.product_name, body.product_price, body.product_id, body.photo || 'https://es.wikipedia.org/wiki/Trollface');
+  await db.addProduct(body.product_name, body.product_price, body.product_id, body.photo || '/images/noimage.svg');
   res.redirect("/productos");
 }
 
-module.exports = {productsGet, productsNewGet, productsNewPost};
+async function productsDeleteGet(req, res) {
+  const {id} = req.params;
+  await db.deleteProduct(id);
+  res.redirect("/productos");
+}
+
+module.exports = {productsGet, productsNewGet, productsNewPost, productsDeleteGet};
