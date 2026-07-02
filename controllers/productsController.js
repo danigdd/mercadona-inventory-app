@@ -1,5 +1,6 @@
 const db = require("../db/queries");
 const {body, validationResult, matchedData} = require('express-validator');
+require("dotenv").config();
 
 const alphaErr = "debe contener solo letras";
 const lengthErr = "debe estar entre 1 y 15 carácteres";
@@ -15,7 +16,7 @@ const validateUser = [
   .bail()
   .isAlpha()
   .withMessage(`El nombre del producto ${alphaErr}`)
-  .isLength({min: 1, max: 10})
+  .isLength({min: 1, max: 15})
   .withMessage(`El nombre del producto ${lengthErr}`),
 
   body("product_price")
@@ -35,6 +36,11 @@ const validateUser = [
   .optional({ values : "falsy" })
   .isURL()
   .withMessage(`El enlace de la foto del producto ${photoErr}`),
+
+  body("master_password")
+  .trim()
+  .equals(process.env.PASSWORD)
+  .withMessage("La contraseña es incorrecta"),
 ];
 
 
