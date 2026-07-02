@@ -1,4 +1,5 @@
 const db = require("../db/queries");
+require("dotenv").config();
 const {body, validationResult, matchedData} = require("express-validator");
 
 const alphaErr = "debe contener solo letras";
@@ -10,6 +11,11 @@ const validateUser = [
   .withMessage(`El nombre de la categoría ${alphaErr}`)
   .isLength({min: 1, max: 10})
   .withMessage(`El nombre de la categoría ${lengthErr}`),
+
+  body("master_password")
+  .trim()
+  .equals(process.env.PASSWORD)
+  .withMessage("La contraseña es incorrecta"),
 ];
 
 async function categoriesGet(req, res) {
